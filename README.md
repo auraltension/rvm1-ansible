@@ -78,13 +78,13 @@ rvm1_autolib_mode: 3
   hosts: all
 
   roles:
-    - { role: rvm_io.rvm1-ruby, tags: ruby, sudo: True }
+    - { role: rvm_io.rvm1-ruby, tags: ruby, become: True }
 ```
 
 #### System wide installation
 
 The above example would setup ruby system wide. It's very important that you
-run the play with sudo because it will need to write to `/usr/local/rvm`.
+run the play with sudo (via *become*) because it will need to write to `/usr/local/rvm`.
 
 #### To the same user as `ansible_ssh_user`
 
